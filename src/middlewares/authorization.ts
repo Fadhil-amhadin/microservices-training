@@ -8,7 +8,6 @@ const authorization = async ( req: Request, res: Response, next: NextFunction) =
             res.status(403).send("Unauthorized")
         }
 
-        
         const user = verifyToken(access_token)
         const id = user.id
 

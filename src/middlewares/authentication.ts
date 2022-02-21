@@ -5,8 +5,9 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
     try {
         const { signature } = req.headers;
 
-        if(!signature || signature !== 'shoppingmallxyz'){
-            res.status(403).send('Unauthorized')
+        if(signature != 'shoppingmallxyz'){
+            // res.status(403).send('Unauthorized')
+            throw { name: "InvalidSignature" }
         }
         next()
     } catch (error) {
